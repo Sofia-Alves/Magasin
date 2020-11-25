@@ -6,13 +6,16 @@ import java.util.Scanner;
 public class Administrateur extends Utilisateurs {
 
     private String NomSociete;
-    Magasins magasinsAjoutAdmi = new Magasins();
+    private  ArrayList<Produits> ListeDeproduitsDesAdministrateurs = null;
 
-    /*public Administrateur(int identifiant, int motDePasse, String addresseMail, String nomSociete, ArrayList<Produits> listeDeproduitsDesAdministrateurs) {
-        super(identifiant, motDePasse, addresseMail);
+    public Administrateur() {
+    }
+
+    public Administrateur(int identifiant, int motDePasse, String adresseMail, String nomSociete, ArrayList<Produits> listeDeproduitsDesAdministrateurs) {
+        super(identifiant,motDePasse,adresseMail);
         NomSociete = nomSociete;
         ListeDeproduitsDesAdministrateurs = listeDeproduitsDesAdministrateurs;
-    }*/
+    }
 
     public String getNomSociete() {
 
@@ -24,22 +27,21 @@ public class Administrateur extends Utilisateurs {
         NomSociete = nomSociete;
     }
 
-    public ArrayList<Produits> getListeDeproduitsDesAdministrateurs() {
+    public  ArrayList<Produits> getListeDeproduitsDesAdministrateurs() {
 
         return ListeDeproduitsDesAdministrateurs;
     }
 
-    public void setListeDeproduitsDesAdministrateurs(ArrayList<Produits> listeDeproduitsDesAdministrateurs) {
+    public  void setListeDeproduitsDesAdministrateurs(ArrayList<Produits> listeDeproduitsDesAdministrateurs) {
 
         ListeDeproduitsDesAdministrateurs = listeDeproduitsDesAdministrateurs;
     }
 
-//************************* METHODE DE RAJOUT DE PRODUIT****************************
+    ArrayList<Produits> getListeDeProduitsDesAdministrateurs = new ArrayList<>();
 
+                        //************************* METHODE DE RAJOUT DE PRODUIT****************************
 
-
-
-    public void AjoutProduit() {
+    public Administrateur AjoutProduit() {
 
         boolean isInProgress = true;
         while (isInProgress) {
@@ -63,13 +65,13 @@ public class Administrateur extends Utilisateurs {
                             String ListedeProduitTab[] = result.split("/");
                 //********On parcourt notre liste de produit pour verifier que le produit est existant ou non
 
-
                 for (int i = 0; i < this.getListeDeproduitsDesAdministrateurs().size(); i++) {
-                    //******   si le produit est existant on ne rajoute que la quantite
+                    //******   si le produit est existant on ne rajoute que le produit
                     if (ListedeProduitTab[0] == this.getListeDeproduitsDesAdministrateurs().get(i).getNom()) {
 
                         int NbProduit;
                         NbProduit = Integer.parseInt(ListedeProduitTab[1]);
+
                         //******       si le produit est existant on ne rajoute que la quantite
                         this.getListeDeproduitsDesAdministrateurs().get(i).setQuantite(getListeDeproduitsDesAdministrateurs().get(i).getQuantite() + NbProduit);
 
@@ -85,3 +87,4 @@ public class Administrateur extends Utilisateurs {
         }
     }
 }
+// lutilisateur rentre 3 produit en
