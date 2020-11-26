@@ -1,51 +1,47 @@
 package com.company;
 
-import java.util.ArrayList;
-
 public class Produits {
-    private String Nom;
-    private Double Prix;
-    private int Reference;
-    private int Quantite;
+    private String nom;
+    private Double prix;
+    private int quantitee;
+    private int reference;
 
-    public Produits(String nom, Double prix, int reference, int quantite) {
-        Nom = nom;
-        Prix = prix;
-        Reference = reference;
-        Quantite = quantite;
+    public Produits(String nom, Double prix, int quantite, int reference) {
+        this.nom = nom;
+        this.quantitee = quantite;
+        this.prix = prix;
+        this.reference = reference;
     }
 
     public String getNom() {
-        return Nom;
+        return nom;
     }
 
     public void setNom(String nom) {
-        Nom = nom;
+        this.nom = nom;
+    }
+
+    public int getQuantitee() {
+        return quantitee;
+    }
+
+    public void setQuantitee(int quantitee) {
+        this.quantitee = quantitee;
     }
 
     public Double getPrix() {
-        return Prix;
+        return prix;
     }
 
     public void setPrix(Double prix) {
-        Prix = prix;
+        this.prix = prix;
     }
 
     public int getReference() {
-        return Reference;
+        return reference;
     }
 
     public void setReference(int reference) {
-        Reference = reference;
-    }
-
-    public int getQuantite() {
-        return Quantite;
-    }
-
-    public void setQuantite(int quantite) {
-        Quantite = quantite;
+        this.reference = reference;
     }
 }
-
-

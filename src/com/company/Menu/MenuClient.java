@@ -1,37 +1,50 @@
 package com.company.Menu;
+
+import com.company.Utilisateurs.Client;
+
+
 import java.util.Scanner;
+
 public class MenuClient {
+    public MenuClient() {
+        affichageMenuClient();
+    }
+/********************************************************/
+/**************  Affichage du menu Client  **************/
+/********************************************************/
 
-    public MenuClient(){
+    public void affichageMenuClient() {
+        int choix;
+        boolean isInprogress = true;
 
-        /********************************************************/
-        /**************  Affichage du menu Client  **************/
-        /********************************************************/
 
         System.out.println("Vous êtes connecté en tant que Client");
         System.out.println("Tapez le numéro correspondant à l'action souhaitée");
-        System.out.println("1 Liste des produits");
-        System.out.println("2 Panier");
-        System.out.println("3 Déconnexion");
+        System.out.println("\t- 1 Liste des produits");
+        System.out.println("\t- 2 Panier");
+        System.out.println("\t- 3 Déconnexion");
+
         // Gestion des choix du menuClient + création des instances des éléments choisis
         Scanner sc = new Scanner(System.in);
-        int Choix;
-        Choix = sc.nextInt();
+        choix = sc.nextInt();
 
-        switch (Choix){
+        while(isInprogress) {
+            switch(choix) {
+                case 1:
+                   //mettre la methode qui affiche la liste des porduits
 
-            case 1 :
-
-
-            case 2 :
-
-               // new Panier();
-
-            case 3 :
-
-                System.out.println("EXIT");
-               Menu.Menu1();
-                System.exit(0);
+                    isInprogress = false;
+                    break;
+                case 2:
+                    isInprogress = false;
+                    break;
+                case 3:
+                    System.out.println("Deconnexion");
+                    System.exit(0);
+                default:
+                    System.out.println("Je ne comprends pas votre choix.\n Merci de faire un choix parmis :");
+                    affichageMenuClient();
+            }
         }
     }
 }
