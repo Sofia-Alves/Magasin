@@ -4,44 +4,25 @@ import java.util.ArrayList;
 import java.util.Scanner;
 
 public class Administrateur extends Utilisateurs {
+private String Nom;
 
-    private String NomSociete;
-    private  ArrayList<Produits> ListeDeproduitsDesAdministrateurs = null;
 
-    public Administrateur() {
+    public Administrateur(int identifiant, int motDePasse, String addresseMail, String nom) {
+        super(identifiant, motDePasse, addresseMail);
+        Nom = nom;
     }
 
-    public Administrateur(int identifiant, int motDePasse, String adresseMail, String nomSociete, ArrayList<Produits> listeDeproduitsDesAdministrateurs) {
-        super(identifiant,motDePasse,adresseMail);
-        NomSociete = nomSociete;
-        ListeDeproduitsDesAdministrateurs = listeDeproduitsDesAdministrateurs;
+    public String getNom() {
+        return Nom;
     }
 
-    public String getNomSociete() {
-
-        return NomSociete;
+    public void setNom(String nom) {
+        Nom = nom;
     }
+    //************************* METHODE DE RAJOUT DE PRODUIT****************************
 
-    public void setNomSociete(String nomSociete) {
+    public void AjoutProduit(Magasins magasins) {
 
-        NomSociete = nomSociete;
-    }
-
-    public  ArrayList<Produits> getListeDeproduitsDesAdministrateurs() {
-
-        return ListeDeproduitsDesAdministrateurs;
-    }
-
-    public  void setListeDeproduitsDesAdministrateurs(ArrayList<Produits> listeDeproduitsDesAdministrateurs) {
-
-        ListeDeproduitsDesAdministrateurs = listeDeproduitsDesAdministrateurs;
-    }
-
-    ArrayList<Produits> getListeDeProduitsDesAdministrateurs = new ArrayList<>();
-
-                        //************************* METHODE DE RAJOUT DE PRODUIT****************************
-
-    public Administrateur AjoutProduit() {
 
         boolean isInProgress = true;
         while (isInProgress) {
@@ -52,7 +33,7 @@ public class Administrateur extends Utilisateurs {
             //On indique à l'utilisateur ce qu'il va devoir saisir dans le Scanner
 
             System.out.println("Merci d'indiquer les informations de votre Article séparés par le caractère / " +
-                    "(nom, quantite, prix,reference) Pour Quitter la saisie merci de presser la lettre Q");
+                    "(nom, prix, quantite, reference) Pour Quitter la saisie merci de presser la lettre Q");
             //On indique que la saisie utilisateur doit être stocké dans une string
 
             String result = myScanner.nextLine();
@@ -62,29 +43,50 @@ public class Administrateur extends Utilisateurs {
                 isInProgress = false;
             } else {//on va diviser notre string en sous string dans un tableau de String
 
-                            String ListedeProduitTab[] = result.split("/");
+                String ListedeProduitTab[] = result.split("/");
                 //********On parcourt notre liste de produit pour verifier que le produit est existant ou non
 
-                for (int i = 0; i < this.getListeDeproduitsDesAdministrateurs().size(); i++) {
-                    //******   si le produit est existant on ne rajoute que le produit
-                    if (ListedeProduitTab[0] == this.getListeDeproduitsDesAdministrateurs().get(i).getNom()) {
+
+                for (int i = 0; i < magasins.getListeProduitsDuMagasin().size(); i++) {
+                    //******   si le produit est existant on ne rajoute que la quantite
+                    if (ListedeProduitTab[0] == magasins.getListeProduitsDuMagasin().get(i).getNom()) {
 
                         int NbProduit;
-                        NbProduit = Integer.parseInt(ListedeProduitTab[1]);
-
+                        NbProduit = Integer.parseInt(ListedeProduitTab[2]);
                         //******       si le produit est existant on ne rajoute que la quantite
-                        this.getListeDeproduitsDesAdministrateurs().get(i).setQuantite(getListeDeproduitsDesAdministrateurs().get(i).getQuantite() + NbProduit);
-
+                        magasins.getListeProduitsDuMagasin().get(i).setQuantite(magasins.getListeProduitsDuMagasin().get(i).getQuantite() + NbProduit);
+                        System.out.println(magasins.getListeProduitsDuMagasin().get(i).getQuantite() + " est votre nouvelle quantitée de produit");
+                        isInProgress = false;
                     } else {
 
-                        Produits ProduitARajouter = new Produits(ListedeProduitTab[0].trim(), Integer.parseInt(ListedeProduitTab[1].trim()), Double.parseDouble(ListedeProduitTab[2]),
-                                Integer.parseInt(ListedeProduitTab[3]));
-                        this.getListeDeproduitsDesAdministrateurs().add(ProduitARajouter);
+                        Produits ProduitARajouter = new Produits(ListedeProduitTab[0].trim(),Double.parseDouble(ListedeProduitTab[1].trim()),Integer.parseInt(ListedeProduitTab[2].trim()),Integer.parseInt(ListedeProduitTab[3].trim()));
 
+                        magasins.getListeProduitsDuMagasin().add(ProduitARajouter);
+                        System.out.println( " Nouveau produit rajouté. ");
+                        isInProgress = false;
                     }
                 }
             }
         }
     }
+
+    public void ImprimerLaListe(Magasins magasins) {
+        for (int i = 0; i < magasins.getListeProduitsDuMagasin().size(); i++) {
+            if (magasins.getListeProduitsDuMagasin().get(i) != null) {
+                System.out.println("Nom : " + magasins.getListeProduitsDuMagasin().get(i).getNom() + " quantite " + magasins.getListeProduitsDuMagasin().get(i).getQuantite()
+                        + " prix : " + magasins.getListeProduitsDuMagasin().get(i).getPrix() + " reference " + magasins.getListeProduitsDuMagasin().get(i).getReference());
+            }
+
+        }
+    }
 }
-// lutilisateur rentre 3 produit en
+
+
+
+
+
+
+
+
+
+

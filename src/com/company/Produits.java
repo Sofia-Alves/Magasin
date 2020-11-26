@@ -4,16 +4,15 @@ import java.util.ArrayList;
 
 public class Produits {
     private String Nom;
-  private   int Quantite;
- private    Double Prix;
-private     int Reference;
+    private Double Prix;
+    private int Reference;
+    private int Quantite;
 
-
-    public Produits(String nom, int quantite, Double prix, int reference) {
+    public Produits(String nom, Double prix, int reference, int quantite) {
         Nom = nom;
-        Quantite = quantite;
         Prix = prix;
         Reference = reference;
+        Quantite = quantite;
     }
 
     public String getNom() {
@@ -22,14 +21,6 @@ private     int Reference;
 
     public void setNom(String nom) {
         Nom = nom;
-    }
-
-    public int getQuantite() {
-        return Quantite;
-    }
-
-    public void setQuantite(int quantite) {
-        Quantite = quantite;
     }
 
     public Double getPrix() {
@@ -43,12 +34,18 @@ private     int Reference;
     public int getReference() {
         return Reference;
     }
+
     public void setReference(int reference) {
         Reference = reference;
     }
 
+    public int getQuantite() {
+        return Quantite;
+    }
 
-
+    public void setQuantite(int quantite) {
+        Quantite = quantite;
+    }
 }
 
 

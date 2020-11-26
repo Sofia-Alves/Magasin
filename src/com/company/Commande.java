@@ -5,12 +5,12 @@ import java.util.ArrayList;
 public class Commande {
     private int Identifiant;
     private double Prix;
-    private ArrayList<Produits> ListeDeProduitUtilisateur;
+    private ArrayList<Produits> ListeDesCommandes;
 
-    public Commande(int identifiant, double prix, ArrayList<Produits> listeDeProduitUtilisateur) {
+    public Commande(int identifiant, double prix, ArrayList<Produits> listeDesCommandes) {
         Identifiant = identifiant;
         Prix = prix;
-        ListeDeProduitUtilisateur = listeDeProduitUtilisateur;
+        ListeDesCommandes = listeDesCommandes;
     }
 
     public int getIdentifiant() {
@@ -29,11 +29,11 @@ public class Commande {
         Prix = prix;
     }
 
-    public ArrayList<Produits> getListeDeProduitUtilisateur() {
-        return ListeDeProduitUtilisateur;
+    public ArrayList<Produits> getListeDesCommandes() {
+        return ListeDesCommandes;
     }
 
-    public void setListeDeProduitUtilisateur(ArrayList<Produits> listeDeProduitUtilisateur) {
-        ListeDeProduitUtilisateur = listeDeProduitUtilisateur;
+    public void setListeDesCommandes(ArrayList<Produits> listeDesCommandes) {
+        ListeDesCommandes = listeDesCommandes;
     }
 }

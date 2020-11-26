@@ -1,4 +1,4 @@
-package com.company;
+package com.company.Menu;
 import java.util.Scanner;
 public class MenuClient {
 
@@ -19,15 +19,19 @@ public class MenuClient {
         Choix = sc.nextInt();
 
         switch (Choix){
+
             case 1 :
-                //liste des produits qui saffiche
+
 
             case 2 :
+
                // new Panier();
+
             case 3 :
+
                 System.out.println("EXIT");
                Menu.Menu1();
-
+                System.exit(0);
         }
     }
 }
