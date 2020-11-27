@@ -1,10 +1,10 @@
-package com.company.Menu;
+package com.company.menu;
 
 import java.util.Scanner;
 
-public class Menu {
+public class MenuPrincipal {
 
-    public Menu() {
+    public MenuPrincipal() {
         creerMenuPrincipal();
     }
 

@@ -1,7 +1,7 @@
-package com.company.Menu;
+package com.company.menu;
 
-import com.company.Utilisateurs.Client;
 
+import com.company.core.Magasins;
 
 import java.util.Scanner;
 
@@ -31,8 +31,7 @@ public class MenuClient {
         while(isInprogress) {
             switch(choix) {
                 case 1:
-                   //mettre la methode qui affiche la liste des porduits
-
+                    Magasins.imprimerLaListe();
                     isInprogress = false;
                     break;
                 case 2:

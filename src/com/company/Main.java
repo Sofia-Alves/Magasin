@@ -1,35 +1,55 @@
 package com.company;
 
-import com.company.Menu.Menu;
-import com.company.Menu.MenuAdministrateur;
-import com.company.Menu.MenuClient;
-import com.company.Utilisateurs.Administrateur;
-import com.company.Utilisateurs.Client;
-
+import com.company.core.Magasins;
+import com.company.core.Produits;
+import com.company.menu.MenuPrincipal;
 import java.util.ArrayList;
 
 public class Main {
 
     public static void main(String[] args) {
-
-
         Produits produits1 = new Produits("chocolat", 5.5, 11, 10);
         Produits produits2 = new Produits("fraise", 5.8, 12, 20);
         Produits produits3 = new Produits("vanille", 10.7, 13, 70);
         // jeu de test pour creer nos listes
 
-        ArrayList<Produits> StockProduit = new ArrayList<Produits>();
+        ArrayList<Produits> StockProduit = new ArrayList();
 
         StockProduit.add(produits1);
         StockProduit.add(produits2);
         StockProduit.add(produits3);
 
-        Magasins magasins = new Magasins("amazon", StockProduit);
+        Magasins magasins = new Magasins("amazon");
+
+        magasins.ajoutProduits(StockProduit);
+
+        MenuPrincipal menuPrincipale = new MenuPrincipal();
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
         //cree une commande
 
 
-        Administrateur administrateur = new Administrateur(123, 543, "dfghdf@gmail.com", "LO");
+        /*Administrateur administrateur = new Administrateur(123, 543, "dfghdf@gmail.com", "LO");
 
         Commande nouvelleCommande = new Commande(10, produits1 );
         Commande nouvelleCommande2 = new Commande(20, produits2);
@@ -40,15 +60,15 @@ public class Main {
         ListeDeCommande.add(nouvelleCommande2);
 
         Client client = new Client(567, 1209, "RE@GMAIL.COM", "Dupont", "François", ListeDeCommande);
-       /* administrateur.AjoutProduit(magasins);
+       *//* administrateur.AjoutProduit(magasins);
         administrateur.ImprimerLaListe(magasins);
 
-        Menu m1 = new Menu();
+        menu m1 = new menu();
         MenuAdministrateur mA = new MenuAdministrateur();
-        MenuClient mC = new MenuClient();*/
+        MenuClient mC = new MenuClient();*//*
         nouvelleCommande.Commander(client,magasins);
         System.out.println(client.getListeDeCommandeDesClients().get(2).getPrix());
-
+*/
 
     }
 }

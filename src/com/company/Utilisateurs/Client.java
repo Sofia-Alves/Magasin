@@ -1,70 +1,54 @@
-package com.company.Utilisateurs;
+package com.company.utilisateurs;
 
-import com.company.Commande;
-import com.company.Magasins;
-import com.company.Utilisateurs.Utilisateurs;
+import com.company.core.Commande;
+import com.company.core.Magasins;
 
 import java.util.ArrayList;
 
 public class Client extends Utilisateurs {
-    private String Nom;
-    private String Prenom;
-    private ArrayList<Commande> ListeDeCommandeDesClients;
+    private String nom;
+    private String prenom;
+    private ArrayList<Commande> listeCommandeClient;
 
-    public Client(int identifiant, int motDePasse, String addresseMail, String nom, String prenom, ArrayList<Commande> listeDeCommandeDesClients) {
+    public Client(int identifiant, int motDePasse, String addresseMail, String nom, String prenom) {
         super(identifiant, motDePasse, addresseMail);
-        Nom = nom;
-        Prenom = prenom;
-        ListeDeCommandeDesClients = listeDeCommandeDesClients;
+        this.nom = nom;
+        this.prenom = prenom;
     }
 
     public String getNom() {
-        return Nom;
+        return nom;
     }
 
     public void setNom(String nom) {
-        Nom = nom;
+        this.nom = nom;
     }
 
     public String getPrenom() {
-        return Prenom;
+        return this.prenom;
     }
 
     public void setPrenom(String prenom) {
-        Prenom = prenom;
+        this.prenom = prenom;
     }
 
-    public ArrayList<Commande> getListeDeCommandeDesClients() {
-        return ListeDeCommandeDesClients;
+    public ArrayList<Commande> getListeCommandeClient() {
+        return listeCommandeClient;
     }
 
-    public void setListeDeCommandeDesClients(ArrayList<Commande> listeDeCommandeDesClients) {
-        ListeDeCommandeDesClients = listeDeCommandeDesClients;
+    public void setListeCommandeClient(ArrayList<Commande> listeCommandeClient) {
+        this.listeCommandeClient = listeCommandeClient;
     }
 
-
-    public void voirListeProduit(){
-
-        System.out.println("Liste des Produits");
-
-        Magasins magasins = new Magasins();
-        for (int i = 0; i < magasins.getListeProduitsDuMagasin().size(); i++) {
-            if (magasins.getListeProduitsDuMagasin().get(i) != null) {
-                System.out.println("Nom : " + magasins.getListeProduitsDuMagasin().get(i).getNom() + " quantite " + magasins.getListeProduitsDuMagasin().get(i).getQuantitee()
-                        + " prix : " + magasins.getListeProduitsDuMagasin().get(i).getPrix() + " reference " + magasins.getListeProduitsDuMagasin().get(i).getReference());
-            }
-
-        }
-
-
+    public void listProduits() {
+        Magasins.imprimerLaListe();
     }
 
-
-    public void AjoutProduitDansPanier() {
-        String NomDuProduit = null;
-        int QuantiteDuProduit = 0;
-        double PrixDuProduit = 0;
-        int ReferenceDuProduit = 0;
+/*public void AjoutProduitDansPanier() {
+        String nomDuProduit = null;
+        int quantiteDuProduit = 0;
+        double prixDuProduit = 0;
+        int referenceDuProduit = 0;
 
         while (NomDuProduit == null || QuantiteDuProduit == 0 || PrixDuProduit == 0 || ReferenceDuProduit == 0) {
             System.out.println("Nom Produit : ");
@@ -83,11 +67,5 @@ public class Client extends Utilisateurs {
             System.out.println();
 
         }
-
-    }
-
+    }*/
 }
-
-
-// le client doit avoir l'accès à la liste des produits
-

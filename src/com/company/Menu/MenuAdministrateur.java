@@ -1,8 +1,7 @@
-package com.company.Menu;
+package com.company.menu;
 
-import com.company.Utilisateurs.Administrateur;
-
-import java.util.ArrayList;
+import com.company.utilisateurs.Administrateur;
+import com.company.core.Magasins;
 import java.util.Scanner;
 
 public class MenuAdministrateur {
@@ -32,7 +31,7 @@ public class MenuAdministrateur {
         while(isInprogress) {
             switch(choix) {
                 case 1:
-         admin1.ImprimerLaListe();
+                    Magasins.imprimerLaListe();
                     isInprogress = false;
                     break;
                 case 2:

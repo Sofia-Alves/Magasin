@@ -1,33 +1,37 @@
-package com.company.Utilisateurs;
-
-import com.company.Magasins;
-import com.company.Produits;
-import com.company.Utilisateurs.Utilisateurs;
-
-import java.util.ArrayList;
-import java.util.Scanner;
+package com.company.utilisateurs;
 
 public class Administrateur extends Utilisateurs {
-    private String Nom;
+    private String nom;
+    private String prenom;
 
-    public Administrateur(int identifiant, int motDePasse, String addresseMail, String nom) {
+    public Administrateur(int identifiant, int motDePasse, String addresseMail, String nom, String prenom) {
         super(identifiant, motDePasse, addresseMail);
-        Nom = nom;
+        this.nom = nom;
+        this.prenom = prenom;
     }
 
     public String getNom() {
-        return Nom;
+        return nom;
     }
 
     public void setNom(String nom) {
-        Nom = nom;
+        this.nom = nom;
     }
+
+    public String getPrenom() {
+        return prenom;
+    }
+
+    public void setPrenom(String prenom) {
+        this.prenom = prenom;
+    }
+
     //************************* METHODE DE RAJOUT DE PRODUIT****************************
 
-    public void AjoutProduit(Magasins magasins) {
+/*    public void AjoutProduit(Magasins magasins) {
 
         boolean isInProgress = true;
-        while (isInProgress) {
+        while(isInProgress) {
             //On instancie un scanner
             Scanner myScanner = new Scanner(System.in);
 
@@ -46,26 +50,26 @@ public class Administrateur extends Utilisateurs {
             //********On parcourt notre liste de produit pour verifier que le produit est existant ou non
 
 
-            if (result.equalsIgnoreCase("Q")) {
+            if(result.equalsIgnoreCase("Q")) {
                 isInProgress = false;
             } else {
                 //on crée une Arraylist Vide
                 ArrayList<String> listenomproduit = new ArrayList<>();
                 //pour tous les produit de notre Array List de produit, on recuperer le nom de produit et on l'ajoute a notre liste vide
-                for (int i = 0; i < magasins.getListeProduitsDuMagasin().size(); i++) {
+                for(int i = 0; i < magasins.getListeProduitsDuMagasin().size(); i++) {
                     listenomproduit.add(magasins.getListeProduitsDuMagasin().get(i).getNom());
                 }
 
                 //la methode contains permet de tester si un mot est présent dans une liste.
                 //on regarde si le mot saisie par l'utilisateur est present dans la liste de nom de produit, s'il est prséent ça veut dire qu'on doit juste ajouter du stock
-                if (listenomproduit.contains(ListedeProduitTab[0])) {
+                if(listenomproduit.contains(ListedeProduitTab[0])) {
                     //on parcours tout les produit de notre liste de produit
-                    for (int i = 0; i < magasins.getListeProduitsDuMagasin().size(); i++) {
+                    for(int i = 0; i < magasins.getListeProduitsDuMagasin().size(); i++) {
                         //on crée un variable qui stock le nom du produit a l'indice i dans la liste de produit
                         String test = magasins.getListeProduitsDuMagasin().get(i).getNom();
                         //.equals permet de comparer 2 string si elles sont egale retourne true
                         //Si le nom du produit a l'indice i est egal a la saisie utilisateur correspondant au nom de l'article
-                        if (test.equals(ListedeProduitTab[0])) {
+                        if(test.equals(ListedeProduitTab[0])) {
                             int NbProduit;
                             //on ajoute la quantité saisie par l'utilisateur a la quantité de base
                             NbProduit = Integer.parseInt(ListedeProduitTab[3]);
@@ -76,37 +80,15 @@ public class Administrateur extends Utilisateurs {
 
                     }
                     //Si le mot saisie par l'utilisateur n'est pas présent dans la liste de nom de produit, on crée un nouveau produit
-                }else {
+                } else {
 
-                    Produits ProduitARajouter = new Produits(ListedeProduitTab[0].trim(),Double.parseDouble(ListedeProduitTab[1].trim()),Integer.parseInt(ListedeProduitTab[2].trim()),Integer.parseInt(ListedeProduitTab[3].trim()));
+                    Produits ProduitARajouter = new Produits(ListedeProduitTab[0].trim(), Double.parseDouble(ListedeProduitTab[1].trim()), Integer.parseInt(ListedeProduitTab[2].trim()), Integer.parseInt(ListedeProduitTab[3].trim()));
 
                     magasins.getListeProduitsDuMagasin().add(ProduitARajouter);
-                    System.out.println( " Nouveau produit rajouté. ");
+                    System.out.println(" Nouveau produit rajouté. ");
                     break;
                 }
-
-
             }
         }
-    }
-
-    public void ImprimerLaListe (Magasins magasins){
-        for (int i = 0; i < magasins.getListeProduitsDuMagasin().size(); i++) {
-            if (magasins.getListeProduitsDuMagasin().get(i) != null) {
-                System.out.println("Nom : " + magasins.getListeProduitsDuMagasin().get(i).getNom() + " quantite " + magasins.getListeProduitsDuMagasin().get(i).getQuantitee()
-                        + " prix : " + magasins.getListeProduitsDuMagasin().get(i).getPrix() + " reference " + magasins.getListeProduitsDuMagasin().get(i).getReference());
-            }
-
-        }
-    }
+    }*/
 }
-
-
-
-
-
-
-
-
-
-

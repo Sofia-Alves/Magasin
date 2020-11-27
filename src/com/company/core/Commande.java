@@ -1,39 +1,31 @@
-package com.company;
-
-import com.company.Utilisateurs.Client;
-
-import java.util.Scanner;
-
-import java.util.ArrayList;
+package com.company.core;
 
 public class Commande {
-
-    private double Prix;
-    private Produits ListeDesProduits;
+    private double prix;
+    private Produits listeDesProduits;
 
     public Commande(double prix, Produits listeDesProduits) {
-
-        Prix = prix;
-        ListeDesProduits = listeDesProduits;
+        this.prix = prix;
+        this.listeDesProduits = listeDesProduits;
     }
 
     public double getPrix() {
-        return Prix;
+        return prix;
     }
 
     public void setPrix(double prix) {
-        Prix = prix;
+        this.prix = prix;
     }
 
     public Produits getListeDesProduits() {
-        return ListeDesProduits;
+        return listeDesProduits;
     }
 
     public void setListeDesProduits(Produits listeDesProduits) {
-        ListeDesProduits = listeDesProduits;
+        this.listeDesProduits = listeDesProduits;
     }
 
-    public void Commander(Client client, Magasins magasins) {
+/*    public void Commander(Client client, Magasins magasins) {
         magasins.getListeProduitsDuMagasin();
         Scanner scanner = new Scanner(System.in);
 
@@ -83,6 +75,6 @@ public class Commande {
         }
         scanner.nextLine();
         System.out.println();
-    }
+    }*/
 }
 
