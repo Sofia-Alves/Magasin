@@ -32,14 +32,18 @@ public class MenuAdministrateur {
             switch(choix) {
                 case 1:
                     Magasins.imprimerLaListe();
+                    MenuAdministrateur mAdmin = new MenuAdministrateur();
                     isInprogress = false;
                     break;
                 case 2:
+                    Administrateur.AjoutProduit();
+                    MenuAdministrateur mAdmin2 = new MenuAdministrateur();
                     isInprogress = false;
                     break;
                 case 3:
                     System.out.println("Deconnexion");
-                    System.exit(0);
+                    MenuPrincipal menuPrincipale = new MenuPrincipal();
+                    //System.exit(0);
                 default:
                     System.out.println("Je ne comprends pas votre choix.\n Merci de faire un choix parmis :");
                     affichageMenuAdministrateur();

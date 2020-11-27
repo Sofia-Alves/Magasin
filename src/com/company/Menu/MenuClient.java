@@ -1,7 +1,9 @@
 package com.company.menu;
 
 
+import com.company.core.Commande;
 import com.company.core.Magasins;
+import com.company.utilisateurs.Client;
 
 import java.util.Scanner;
 
@@ -32,14 +34,18 @@ public class MenuClient {
             switch(choix) {
                 case 1:
                     Magasins.imprimerLaListe();
+                    Commande.Commander();
+                    MenuPrincipal menuPrincipale = new MenuPrincipal();
                     isInprogress = false;
                     break;
                 case 2:
+                    MenuPrincipal menuPrincipale3 = new MenuPrincipal();
                     isInprogress = false;
                     break;
                 case 3:
                     System.out.println("Deconnexion");
-                    System.exit(0);
+                    MenuPrincipal menuPrincipale2 = new MenuPrincipal();
+                    //System.exit(0);
                 default:
                     System.out.println("Je ne comprends pas votre choix.\n Merci de faire un choix parmis :");
                     affichageMenuClient();

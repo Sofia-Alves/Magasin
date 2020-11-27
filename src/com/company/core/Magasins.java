@@ -7,8 +7,7 @@ public class Magasins {
     private String nom;
     private static ArrayList<Produits> listeProduitsDuMagasin;
 
-    // l'admin recupère la liste listeproduitdumagasin et a partir de cette liste il rentre un nouveau produit s'il existe deja on augmente son stock
-    // et s'il existe pas on rajoute
+
 
     public Magasins(String nomDuMagasin) {
         nom = nomDuMagasin;
@@ -44,6 +43,7 @@ public class Magasins {
             }
         }
     }
+
 }
 
 

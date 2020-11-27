@@ -1,5 +1,6 @@
 package com.company;
 
+import com.company.core.Commande;
 import com.company.core.Magasins;
 import com.company.core.Produits;
 import com.company.menu.MenuPrincipal;
@@ -22,6 +23,13 @@ public class Main {
         Magasins magasins = new Magasins("amazon");
 
         magasins.ajoutProduits(StockProduit);
+        ArrayList<Produits> StockCommande1 = new ArrayList<>();
+        StockCommande1.add(produits1);
+        ArrayList<Produits> StockCommande2 = new ArrayList<>();
+        StockCommande2.add(produits2);
+        ArrayList<Produits> StockCommande3 = new ArrayList<>();
+        StockCommande3.add(produits3);
+
 
         MenuPrincipal menuPrincipale = new MenuPrincipal();
 

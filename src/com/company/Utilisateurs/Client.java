@@ -2,10 +2,11 @@ package com.company.utilisateurs;
 
 import com.company.core.Commande;
 import com.company.core.Magasins;
-
+import java.util.Scanner;
 import java.util.ArrayList;
 
 public class Client extends Utilisateurs {
+    private static Scanner scanner;
     private String nom;
     private String prenom;
     private ArrayList<Commande> listeCommandeClient;
@@ -14,7 +15,11 @@ public class Client extends Utilisateurs {
         super(identifiant, motDePasse, addresseMail);
         this.nom = nom;
         this.prenom = prenom;
+        this.listeCommandeClient = new ArrayList<>();
     }
+
+
+
 
     public String getNom() {
         return nom;
@@ -38,30 +43,31 @@ public class Client extends Utilisateurs {
 
     public void setListeCommandeClient(ArrayList<Commande> listeCommandeClient) {
         this.listeCommandeClient = listeCommandeClient;
+        
     }
 
     public void listProduits() {
         Magasins.imprimerLaListe();
     }
 
-/*public void AjoutProduitDansPanier() {
+/*public static void AjoutProduitDansPanier() {
         String nomDuProduit = null;
         int quantiteDuProduit = 0;
         double prixDuProduit = 0;
         int referenceDuProduit = 0;
 
-        while (NomDuProduit == null || QuantiteDuProduit == 0 || PrixDuProduit == 0 || ReferenceDuProduit == 0) {
+        while (nomDuProduit== null || quantiteDuProduit == 0 || prixDuProduit == 0 || referenceDuProduit == 0) {
             System.out.println("Nom Produit : ");
-            NomDuProduit = scanner.nextLine();
+            nomDuProduit = scanner.nextLine();
 
             System.out.println("Quantite : ");
-            QuantiteDuProduit = scanner.nextInt();
+            quantiteDuProduit = scanner.nextInt();
 
             System.out.println("Prix : ");
-            PrixDuProduit = scanner.nextDouble();
+            prixDuProduit = scanner.nextDouble();
 
             System.out.println("Reference : ");
-            ReferenceDuProduit = scanner.nextInt();
+            referenceDuProduit = scanner.nextInt();
 
             scanner.nextLine();
             System.out.println();

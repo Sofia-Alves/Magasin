@@ -1,6 +1,16 @@
 package com.company.utilisateurs;
 
+import com.company.core.Magasins;
+import com.company.core.Produits;
+import com.company.menu.MenuAdministrateur;
+
+import java.util.ArrayList;
+import java.util.Scanner;
+
+import static java.awt.SystemColor.menu;
+
 public class Administrateur extends Utilisateurs {
+    private static Magasins magasins;
     private String nom;
     private String prenom;
 
@@ -28,7 +38,7 @@ public class Administrateur extends Utilisateurs {
 
     //************************* METHODE DE RAJOUT DE PRODUIT****************************
 
-/*    public void AjoutProduit(Magasins magasins) {
+  public static void AjoutProduit() {
 
         boolean isInProgress = true;
         while(isInProgress) {
@@ -38,7 +48,7 @@ public class Administrateur extends Utilisateurs {
             //On indique à l'utilisateur ce qu'il va devoir saisir dans le Scanner
 
             System.out.println("Merci d'indiquer les informations de votre Article séparés par le caractère / " +
-                    " (nom, prix, quantitée ,reference) Pour Quitter la saisie merci de presser la lettre Q");
+                    " (nom, prix (précisez un nombre avec un point ex : 10.5), quantitée ,reference) Pour Quitter la saisie merci de presser la lettre Q");
             //On indique que la saisie utilisateur doit être stocké dans une string
 
             String result = myScanner.nextLine();
@@ -75,7 +85,9 @@ public class Administrateur extends Utilisateurs {
                             NbProduit = Integer.parseInt(ListedeProduitTab[3]);
                             magasins.getListeProduitsDuMagasin().get(i).setQuantitee(magasins.getListeProduitsDuMagasin().get(i).getQuantitee() + NbProduit);
                             System.out.println(magasins.getListeProduitsDuMagasin().get(i).getQuantitee() + " est votre nouvelle quantitée de produit");
+
                             break;
+
                         }
 
                     }
@@ -90,5 +102,5 @@ public class Administrateur extends Utilisateurs {
                 }
             }
         }
-    }*/
+    }
 }
